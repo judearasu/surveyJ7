@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'survey',
-    loadChildren: () => import('./survey/survey.module').then(m => m.SurveyModule)
-  }
+    path: '',
+    loadChildren: () =>
+      import('./survey/survey.module').then((m) => m.SurveyModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
