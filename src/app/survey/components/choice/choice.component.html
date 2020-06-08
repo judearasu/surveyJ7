@@ -1,0 +1,15 @@
+<div class="form-group" [formGroup]="form">
+  <label [attr.for]="question.code">{{ question.title }}</label>
+  <div class="button-group">
+    <div class="input-group-radio" *ngFor="let option of question.value; let i =index">
+      <input
+        type="radio"
+        [formControlName]="question.code"
+        [value]="option.val"
+        id="{{question.code}}-option{{i}}"
+        class="input-radio__native-control"
+      />
+      <label for="{{question.code}}-option{{i}}">{{option.label}}</label>
+    </div>
+  </div>
+</div>

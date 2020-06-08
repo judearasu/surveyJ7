@@ -1,6 +1,6 @@
 import { QuestionBase } from './question.base';
 
-export class TextboxQuestion extends QuestionBase<string> {
+export class ChoiceQuestion extends QuestionBase<string> {
   controlType = 'choice';
   type: string;
 
@@ -9,4 +9,3 @@ export class TextboxQuestion extends QuestionBase<string> {
     this.type = options['type'] || '';
   }
 }
-
