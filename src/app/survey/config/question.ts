@@ -73,7 +73,36 @@ export const SurveyJson = {
         order: 5,
         meta: {},
         visibleIf: "status === 'YES'",
-      }
+      },
+    ],
+  },
+  visibileQuestions: {
+    questions: [
+      {
+        code: 'firstName',
+        visible: true,
+        visibleIf: null,
+      },
+      {
+        code: 'lastName',
+        visible: true,
+        visibleIf: null,
+      },
+      {
+        code: 'status',
+        visible: true,
+        visibleIf: null,
+      },
+      {
+        code: 'dataCollector',
+        visible: false,
+        visibleIf: "status === 'YES'",
+      },
+      {
+        code: 'dataCollectorInst',
+        visible: false,
+        visibleIf: "status === 'YES'",
+      },
     ],
   },
 };

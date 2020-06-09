@@ -7,7 +7,7 @@ export class QuestionBase<T> {
     controlType: string;
     type: string;
     options: {key: string, value: string}[];
-  
+    visibleIf: string;
     constructor(options: {
         value?: T,
         code?: string,
@@ -15,7 +15,8 @@ export class QuestionBase<T> {
         isRequired?: boolean,
         order?: number,
         controlType?: string,
-        type?: string
+        type?: string,
+        visibleIf? : string
       } = {}) {
       this.value = options.value;
       this.code = options.code || '';
@@ -24,6 +25,7 @@ export class QuestionBase<T> {
       this.order = options.order === undefined ? 1 : options.order;
       this.controlType = options.controlType || '';
       this.type = options.type || '';
+      this.visibleIf = options.visibleIf || '';
     }
   }
   

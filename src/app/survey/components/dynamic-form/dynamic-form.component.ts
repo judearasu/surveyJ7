@@ -6,12 +6,10 @@ import { QuestionControlService } from '../../questions/question.control.service
 @Component({
   selector: 'dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  providers: [QuestionControlService],
 })
 export class DynamicFormComponent implements OnInit {
-
   @Input() questions: QuestionBase<string>[] = [];
-
+  visibleQuestions: any = {};
   form: FormGroup;
   payLoad = '';
 
@@ -19,11 +17,17 @@ export class DynamicFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
-    console.log(this.form);
+    this.visibleQuestions = this.qcs.setVisibility(this.questions);
+    this.formValueChanges();
   }
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
   }
-  
+
+  formValueChanges() {
+    // this.form.valueChanges.subscribe((codeVal: any) => {
+    //   this.qcs.checkSetVisibility(this.questions, this.form);
+    // });
+  }
 }
